@@ -12,7 +12,7 @@ public final class Navigator {
     public static void init(Stage s) { stage = s; }
 
     public static void show(Parent root) {
-        if (stage.getScene() == null) stage.setScene(new Scene(root, 900, 600));
+        if (stage.getScene() == null) stage.setScene(new Scene(root, 1000, 680));
         else stage.getScene().setRoot(root);
     }
 }

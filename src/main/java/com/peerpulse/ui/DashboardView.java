@@ -10,11 +10,6 @@ import javafx.scene.layout.*;
 public class DashboardView {
 
     public static Parent build(User user) {
-        // Admins keep their dedicated approval screen
-        if (user.role() == Role.ADMIN) {
-            return AdminDashboardView.build(user);
-        }
-
         Label welcome = new Label("Welcome, " + user.fullName() + " (" + user.role() + ")");
         welcome.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
 
@@ -25,9 +20,11 @@ public class DashboardView {
         header.setAlignment(Pos.CENTER_LEFT);
         header.setPadding(new Insets(10));
 
-        // One tab per feature that applies to this role
         TabPane tabs = new TabPane();
         tabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
+        if (user.role() == Role.ADMIN) {
+            tabs.getTabs().add(new Tab("Applications", AdminDashboardView.build(user)));
+        }
         for (FeatureTab feature : FeatureRegistry.all()) {
             if (feature.appliesTo(user.role())) {
                 tabs.getTabs().add(new Tab(feature.title(), feature.build(user)));
