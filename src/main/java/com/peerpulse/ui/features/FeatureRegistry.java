@@ -6,7 +6,8 @@ public final class FeatureRegistry {
     private static final List<FeatureTab> FEATURES = List.of(
             new ProfileFeature(),
             new SearchFeature(),
-            new CoursesFeature()
+            new CoursesFeature(),
+            new FeedbackFeature()
     );
 
     private FeatureRegistry() {}
