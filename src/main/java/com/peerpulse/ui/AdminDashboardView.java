@@ -58,7 +58,6 @@ public class AdminDashboardView {
         Button approve = new Button("Approve");
         Button reject = new Button("Reject");
         Button refresh = new Button("Refresh");
-        Button logout = new Button("Log out");
 
         approve.setOnAction(e -> {
             MentorApplication selected = table.getSelectionModel().getSelectedItem();
@@ -89,9 +88,8 @@ public class AdminDashboardView {
         });
 
         refresh.setOnAction(e -> reload.run());
-        logout.setOnAction(e -> Navigator.show(LoginView.build()));
 
-        HBox buttons = new HBox(10, approve, reject, refresh, logout);
+        HBox buttons = new HBox(10, approve, reject, refresh);
 
         VBox root = new VBox(14, title, cards, tableTitle, table, buttons, message);
         root.setPadding(new Insets(20));
