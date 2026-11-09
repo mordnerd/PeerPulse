@@ -7,6 +7,7 @@ public final class FeatureRegistry {
             new ProfileFeature(),
             new SearchFeature(),
             new CoursesFeature(),
+            new SchedulingFeature(),
             new FeedbackFeature()
     );
 
